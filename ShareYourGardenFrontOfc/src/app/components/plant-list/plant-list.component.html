@@ -1,0 +1,14 @@
+<app-logout-button></app-logout-button>
+<div class="container">
+    <h1 class="title">Lista de Plantas</h1>
+    @if (!token) {
+        <p> <a href="/login">Clique aqui</a> para fazer log-in e aproveitar todas as funcionalidades do nosso site!</p>
+    }
+</div>
+<div class="fixed-grid has-2-cols">
+  <div class="grid is-gap-3">
+    @for (plant of plants; track plant) {
+    <app-plant-card [plant]="plant"></app-plant-card>
+    }
+  </div>
+</div>

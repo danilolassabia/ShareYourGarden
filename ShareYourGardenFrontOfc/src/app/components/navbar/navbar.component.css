@@ -1,0 +1,39 @@
+.nav{
+    background-color: rgb(64, 85, 20);
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo{
+    width: 40px;
+    position: absolute;
+    left: 15px;
+}
+
+.logo-text{
+    text-decoration: none;
+    color: white;
+    font-size: xx-large;
+    font-weight: bolder;
+    position: absolute;
+    left: 65px;
+}
+
+.nav-tab{
+    margin-top: 5px;
+}
+
+.tab-item{
+    text-decoration: none;
+    color: rgb(255, 179, 0);
+    font-size: large;
+    font-weight: bold;
+    margin-left: 5px;
+    margin-right: 20px;
+}
+
+.tab-item:hover{
+    color: white;
+}

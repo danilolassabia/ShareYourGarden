@@ -1,0 +1,27 @@
+.form-container {
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+select{
+  width: 14.6rem
+}
+
+.remove-image{
+  cursor: pointer;
+  color: black;
+}
+
+.remove-image:hover{
+  color: red;
+}
+
+.text{
+  transition-duration: 294ms;
+}
+
+.text:hover{
+  transition-duration: 294ms;
+}

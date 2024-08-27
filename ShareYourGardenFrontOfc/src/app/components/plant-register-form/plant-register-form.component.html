@@ -1,0 +1,226 @@
+<form
+  class="form-container"
+  [formGroup]="plantRegisterForm"
+  (submit)="registerPlant()"
+  enctype="multipart/form-data"
+>
+  @if(isNull){
+  <p class="help is-danger">Preencha o campo "Nome Popular".</p>
+  }
+  <div class="field is-grouped">
+    <div>
+      <label class="label" for="popular-name">Nome Popular</label>
+      <div class="control has-icons-left">
+        <input
+          class="input is-success"
+          id="popular-name"
+          type="text"
+          placeholder="Nome Popular"
+          formControlName="popularName"
+        />
+        <span class="icon is-small is-left has-text-success">
+          <i class="fa-solid fa-leaf"></i>
+        </span>
+      </div>
+    </div>
+
+    <div>
+      <label class="label" for="scientific-name">Nome Científico</label>
+      <div class="control has-icons-left">
+        <input
+          class="input is-success"
+          id="scientific-name"
+          type="text"
+          placeholder="Nome Científico	"
+          formControlName="scientificName"
+        />
+        <span class="icon is-small is-left has-text-success">
+          <i class="fa-solid fa-flask"></i>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="field is-grouped">
+    <div>
+      <label class="label" for="size">Tamanho</label>
+      <div class="control has-icons-left">
+        <div class="select is-success">
+          <select formControlName="size">
+            <option>Tamanho</option>
+            <option>Pequena</option>
+            <option>Média</option>
+            <option>Grande</option>
+          </select>
+          <span class="icon is-small is-left has-text-success">
+            <i class="fa-solid fa-ruler-vertical"></i>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <label class="label" for="enviroment-climate-type"
+        >Tipo de Clima Ambiente</label
+      >
+      <div class="control has-icons-left">
+        <div class="select is-success">
+          <select formControlName="enviromentClimateType">
+            <option>Tipo de Clima</option>
+            <option>Frio e Seco</option>
+            <option>Frio e Úmido</option>
+            <option>Quente e Seco</option>
+            <option>Quente e Úmido</option>
+          </select>
+          <span class="icon is-small is-left has-text-success">
+            <i class="fa-solid fa-temperature-half"></i>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="field is-grouped">
+    <div>
+      <label class="label" for="enviroment-light-type"
+        >Tipo de Luz Ambiente</label
+      >
+      <div class="control has-icons-left">
+        <div class="select is-success">
+          <select formControlName="enviromentLightType">
+            <option>Tipo de Luz</option>
+            <option>Clara</option>
+            <option>Escura</option>
+          </select>
+          <span class="icon is-small is-left has-text-success">
+            <i class="fa-solid fa-sun"></i>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <label class="label" for="flowering-season">Época de Floração</label>
+      <div class="control has-icons-left">
+        <div class="select is-success">
+          <select formControlName="floweringSeason">
+            <option>Época de Floração</option>
+            <option>Outono</option>
+            <option>Inverno</option>
+            <option>Primavera</option>
+            <option>Verão</option>
+            <option>Ano Inteiro</option>
+          </select>
+          <span class="icon is-small is-left has-text-success">
+            <i class="fa-solid fa-wheat-awn"></i>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="field is-grouped">
+    <div>
+      <label class="label" for="watering-frequency"
+        >Frequência de Regagem</label
+      >
+      <div class="control has-icons-left">
+        <input
+          class="input is-success"
+          id="watering-frequency"
+          type="number"
+          min="1"
+          placeholder="Frequência de Regagem"
+          formControlName="wateringFrequency"
+        />
+        <span class="icon is-small is-left has-text-success">
+          <i class="fa-solid fa-droplet"></i>
+        </span>
+      </div>
+    </div>
+
+    <div>
+      <label class="label" for="fertilization-frequency"
+        >Frequência de Fertilização</label
+      >
+      <div class="control has-icons-left">
+        <input
+          class="input is-success"
+          id="fertilization-frequency"
+          type="number"
+          min="1"
+          placeholder="Frequência de Fertilização "
+          formControlName="fertilizationFrequency"
+        />
+        <span class="icon is-small is-left has-text-success">
+          <i class="fa-solid fa-clock"></i>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="field is-grouped">
+    <div>
+      <label class="label" for="last-pruning">Última Poda</label>
+      <div class="control has-icons-left">
+        <input
+          class="input is-success"
+          id="last-pruning"
+          type="date"
+          placeholder="Última Poda"
+          formControlName="lastPruning"
+        />
+        <span class="icon is-small is-left has-text-success">
+          <i class="fa-solid fa-scissors"></i>
+        </span>
+      </div>
+    </div>
+
+    <div>
+      <label class="label" for="last-fertilization">Última Fertilização</label>
+      <div class="control has-icons-left">
+        <input
+          class="input is-success"
+          id="last-fertilization"
+          type="date"
+          placeholder="Última Fertilização"
+          formControlName="lastFertilization"
+        />
+        <span class="icon is-small is-left has-text-success">
+          <i class="fa-solid fa-sack-xmark"></i>
+        </span>
+      </div>
+    </div>
+
+    <div>
+      <label class="label" for="planting-date">Data de Plantio</label>
+      <div class="control has-icons-left">
+        <input
+          class="input is-success"
+          id="planting-date"
+          type="date"
+          placeholder="Data de Plantio"
+          formControlName="plantingDate"
+        />
+        <span class="icon is-small is-left has-text-success">
+          <i class="fa-solid fa-seedling"></i>
+        </span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="field">
+    <label class="label">Imagem da Planta</label>
+    <div class="control">
+      <input type="file" (change)="onFileSelected($event)" />
+    </div>
+    <span class="icon-text remove-image" (click)="removeImage()">
+      <span class="text">Remover Imagem</span>
+      <span class="icon">
+        <i class="fa-solid fa-x"></i>
+      </span>
+    </span>
+  </div>
+
+  <div class="control">
+    <button type="submit" class="button is-warning">Confirmar</button>
+  </div>
+</form>

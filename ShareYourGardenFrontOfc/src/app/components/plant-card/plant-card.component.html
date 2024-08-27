@@ -1,0 +1,72 @@
+<div class="cell">
+  <div
+    class="is-flex is-flex-direction-column is-align-items-center is-justify-content-center"
+  >
+  <div *ngIf="plant.image" class="image-container mr-5 ml-3">
+    <img class="" [src]="'data:image/jpeg;base64,' + plant.image" alt="Planta" />
+  </div>
+
+  <div *ngIf="!plant.image">
+    <img class="mr-5 ml-3" src="/assets/images/plant.jpg" alt="Planta" />
+  </div>
+
+    <div *ngIf="isGardenOwner" class="mr-4">
+      <a class="button is-link is-rounded mr-1 ml-1" href="editplant/{{plant.id}}">
+        <span class="icon-text">
+          <span class="text">Editar</span>
+          <span class="icon">
+            <i class="fa-solid fa-pencil"></i>
+          </span>
+        </span>
+      </a>
+      <a class="button is-danger is-rounded" (click)="openModal(plant.id)">
+        <span class="icon-text">
+          <span class="text">Remover</span>
+          <span class="icon">
+            <i class="fa-solid fa-trash"></i>
+          </span>
+        </span>
+      </a>
+    </div>
+  </div>
+
+  <div>
+    <p *ngIf="plant.popularName">Nome Popular: {{ plant.popularName }}</p>
+    <p *ngIf="plant.scientificName">Nome Científico: {{ plant.scientificName }}</p>
+    <p *ngIf="plant.size !== 'Tamanho'">Tamanho: {{ plant.size }}</p>
+    <p *ngIf="plant.enviromentClimateType !== 'Tipo de Clima'">Tipo de Clima Ambiente: {{ plant.enviromentClimateType }}</p>
+    <p *ngIf="plant.enviromentLightType !== 'Tipo de Luz'">Tipo de Luz Ambiente: {{ plant.enviromentLightType }}</p>
+    <p *ngIf="plant.floweringSeason !== 'Época de Floração'">Época de Floração: {{ plant.floweringSeason }}</p>
+    <p *ngIf="plant.wateringFrequency !== 0">Frequência de Regagem: {{ plant.wateringFrequency }}x por dia</p>
+    <p *ngIf="plant.fertilizationFrequency !== 0">Frequência de Fertilização: {{ plant.fertilizationFrequency }}x por ano</p>
+    <p *ngIf="plant.lastPruning != null">Última Poda: {{ plant.lastPruning | date : 'dd/MM/yyyy' }}</p>
+    <p *ngIf="plant.lastFertilization != null">Última Fertilização: {{ plant.lastFertilization | date : 'dd/MM/yyyy' }}</p>
+    <p *ngIf="plant.plantingDate != null">Data de Plantio: {{ plant.plantingDate | date : 'dd/MM/yyyy' }}</p>
+  </div>
+</div>
+
+<dialog [id]="'modal-' + plant.id">
+  <div class="modal-container">
+    <h3 class="title has-text-black is-size-4">
+      Deseja realmente deletar a planta: {{ plant.popularName }}?
+    </h3>
+    <div class="modal-buttons">
+      <a class="button is-success is-rounded" (click)="deletePlant(plant.id)">
+        <span class="icon-text">
+          <span class="text">Confirmar</span>
+          <span class="icon">
+            <i class="fa-solid fa-check"></i>
+          </span>
+        </span>
+      </a>
+      <a class="button is-danger is-rounded ml-2" (click)="closeModal(plant.id)">
+        <span class="icon-text">
+          <span class="text">Cancelar</span>
+          <span class="icon">
+            <i class="fa-solid fa-x"></i>
+          </span>
+        </span>
+      </a>
+    </div>
+  </div>
+</dialog>

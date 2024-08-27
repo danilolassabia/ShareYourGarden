@@ -1,0 +1,89 @@
+<app-back-button path="/login"></app-back-button>
+<div class="container">
+  <h1 class="title">Faça seu Cadastro</h1>
+  <form
+    class="form-container"
+    [formGroup]="registerForm"
+    (submit)="register()"
+  >
+    @if(notEmail){
+    <p class="help is-danger">Insira um E-mail válido.</p>
+    } @if(isNull){
+    <p class="help is-danger">Preencha todos os campos.</p>
+    }
+    @if(passwordsNotMatch){
+        <p class="help is-danger">As senhas não coincidem.</p>
+        }
+    <div class="field is-grouped">
+      <div>
+        <label class="label" for="name">Nome</label>
+        <div class="control has-icons-left">
+          <input
+            class="input is-success"
+            id="name"
+            type="text"
+            placeholder="Insira seu Nome"
+            formControlName="name"
+          />
+          <span class="icon is-small is-left has-text-success">
+            <i class="fas fa-user"></i>
+          </span>
+        </div>
+      </div>
+
+      <div>
+        <label class="label" for="email">Email</label>
+        <div class="control has-icons-left">
+          <input
+            class="input is-success"
+            id="email"
+            type="email"
+            placeholder="Insira seu E-mail"
+            formControlName="username"
+          />
+          <span class="icon is-small is-left has-text-success">
+            <i class="fas fa-envelope"></i>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="field is-grouped">
+      <div>
+        <label class="label" for="password">Senha</label>
+        <div class="control has-icons-left">
+          <input
+            class="input is-success"
+            id="password"
+            type="password"
+            placeholder="Insira sua Senha"
+            formControlName="password"
+          />
+          <span class="icon is-small is-left">
+            <i class="fas fa-lock has-text-success"></i>
+          </span>
+        </div>
+      </div>
+
+      <div>
+        <label class="label" for="confirm-password">Confirme sua Senha</label>
+        <div class="control has-icons-left">
+          <input
+            class="input is-success"
+            id="confirm-password"
+            type="password"
+            placeholder="Confirme sua Senha"
+            formControlName="confirmPassword"
+          />
+          <span class="icon is-small is-left">
+            <i class="fas fa-lock has-text-success"></i>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="control">
+      <button type="submit" class="button is-warning">Cadastrar</button>
+    </div>
+  </form>
+</div>

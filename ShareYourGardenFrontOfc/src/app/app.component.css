@@ -1,0 +1,8 @@
+.background{
+    background-image: url(/assets/images/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.05);
+    background-blend-mode: color;
+    min-height: 100%;
+}

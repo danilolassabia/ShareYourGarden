@@ -1,0 +1,45 @@
+<div class="container">
+  <h1 class="title">Faça seu Log-in</h1>
+  <form class="form-container" [formGroup]="loginForm" (submit)="login()">
+    @if(isNotAllowed){
+    <p class="help is-danger">E-mail ou Senha incorretos.</p>
+    } @if(isNull){
+    <p class="help is-danger">Preencha todos os campos.</p>
+    }
+    <div class="field">
+      <label class="label" for="email">Email</label>
+      <div class="control has-icons-left">
+        <input
+          class="input is-success"
+          id="email"
+          type="email"
+          placeholder="Insira seu E-mail"
+          formControlName="email"
+        />
+        <span class="icon is-small is-left has-text-success">
+          <i class="fas fa-envelope"></i>
+        </span>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label" for="password">Senha</label>
+      <div class="control has-icons-left has-icons-right">
+        <input
+          class="input is-success"
+          id="password"
+          type="password"
+          placeholder="Insira sua Senha"
+          formControlName="password"
+        />
+        <span class="icon is-small is-left">
+          <i class="fas fa-lock has-text-success"></i>
+        </span>
+      </div>
+    </div>
+    <div class="control">
+      <button type="submit" class="button is-warning">Fazer Log-in</button>
+    </div>
+    <a class="link" href="/register">Novo Usuário</a>
+  </form>
+</div>

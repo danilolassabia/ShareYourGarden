@@ -1,0 +1,93 @@
+<app-logout-button></app-logout-button>
+@if (isGardenOwner) {
+<div class="container">
+  <h1 class="title">Bem-vindo ao seu Jardim, {{ gardener.name }}!</h1>
+  <table class="table is-bordered has-text-centered">
+    <tbody>
+      <tr>
+        <th class="has-text-centered">
+          <span class="icon-text">
+            <span class="text">Plantas</span>
+            <span class="icon">
+              <i class="fa-solid fa-leaf has-text-success"></i>
+            </span>
+          </span>
+        </th>
+        <th class="has-text-centered">
+          <span class="icon-text">
+            <span class="text">Likes</span>
+            <span class="icon">
+              <i class="fa-solid fa-heart has-text-danger"></i>
+            </span>
+          </span>
+        </th>
+      </tr>
+      <tr>
+        <td>{{ gardener.plants }}</td>
+        <td>{{ gardener.likes }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="is-flex is-justify-content-end mr-5">
+  <a class="button is-success is-rounded" href="newplant">
+    <span class="icon-text">
+      <span class="text">Nova Planta</span>
+      <span class="icon">
+        <i class="fa-solid fa-plus"></i>
+      </span>
+    </span>
+  </a>
+</div>
+}@else{
+<div class="container">
+  <h1 class="title">Bem-vindo ao Jardim de {{ gardener.name }}!</h1>
+  <table class="table is-bordered has-text-centered">
+    <tbody>
+      <tr>
+        <th class="has-text-centered">
+          <span class="icon-text">
+            <span class="text">Plantas</span>
+            <span class="icon">
+              <i class="fa-solid fa-leaf has-text-success"></i>
+            </span>
+          </span>
+        </th>
+        <th class="has-text-centered">
+          <span class="icon-text">
+            <span class="text">Likes</span>
+            <span class="icon">
+              <i class="fa-solid fa-heart has-text-danger"></i>
+            </span>
+          </span>
+        </th>
+      </tr>
+      <tr>
+        <td>{{ gardener.plants }}</td>
+        <td>{{ gardener.likes }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="is-flex is-justify-content-end mr-5">
+  <a class="button is-danger is-rounded like-button" (click)="updateLikes()">
+    <span class="icon-text">
+      <span class="text">Curtir</span>
+      <span class="icon">
+        <i class="fa-solid fa-heart"></i>
+      </span>
+    </span>
+  </a>
+</div>
+}
+<div class="fixed-grid has-2-cols">
+  <div class="grid is-gap-3">
+    @for (plant of plants; track plant) {
+    <app-plant-card
+      [plant]="plant"
+      [isGardenOwner]="isGardenOwner"
+      *ngIf="gardener.id == plant.gardenerId"
+    ></app-plant-card>
+    }
+  </div>
+</div>

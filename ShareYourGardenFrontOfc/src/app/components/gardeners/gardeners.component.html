@@ -1,0 +1,34 @@
+<app-logout-button></app-logout-button>
+<div class="container">
+    <h2 class="title">Outros Usuários</h2>
+    <table class="table is-bordered has-text-centered">
+      <tbody>
+        <tr>
+          <th class="has-text-centered">Nome</th>
+          <th class="has-text-centered">
+          <span class="icon-text">
+            <span class="text">Plantas</span>
+            <span class="icon">
+              <i class="fa-solid fa-leaf has-text-success"></i>
+            </span>
+          </span>
+        </th>
+        <th class="has-text-centered">
+          <span class="icon-text">
+            <span class="text">Likes</span>
+            <span class="icon">
+              <i class="fa-solid fa-heart has-text-danger"></i>
+            </span>
+          </span>
+        </th>
+        </tr>
+        @for (gardener of gardeners; track gardener) {
+          <tr>
+              <td><a href="/garden/{{gardener.id}}">{{gardener.name}}</a></td>
+              <td>{{gardener.plants}}</td>
+              <td>{{gardener.likes}}</td>
+            </tr>
+        }
+      </tbody>
+    </table>
+  </div>

@@ -1,0 +1,10 @@
+<app-logout-button></app-logout-button>
+<app-back-button path="/garden/{{gardener.id}}" ></app-back-button>
+<div class="container">
+  @if (newPlant) {
+  <h1 class="title">Nova Planta</h1>
+  }@else {
+  <h1 class="title">Editar Planta</h1>
+  }
+  <app-plant-register-form></app-plant-register-form>
+</div>
